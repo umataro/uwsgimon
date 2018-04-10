@@ -113,9 +113,11 @@ def run(stats, freq, node, role, f):
         sys.stdout.write('\n')
         sys.stdout.flush()
 
-        #just exit after a single run
-        sys.exit(0)
-        #time.sleep(freq)
+        # exit after a single run if freq set to 0
+        if freq == 0:
+            sys.exit(0)
+        else:
+            time.sleep(freq)
 
 
 def main():
