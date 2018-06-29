@@ -124,7 +124,7 @@ def main():
     default_format = 'uwsgi,node={node},role={role} req={req}i,rps={rps}i,avg={avg},lq={lq}i,busy={busy}i,idle={idle}i,rss={rss}i'
 
     parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter)
-    parser.add_argument('--node', '-n', dest='node', default=socket.gethostname(), help='uWSGI node name, default: "{}"'.format(socket.gethostname()))
+    parser.add_argument('--node', '-n', dest='node', default=socket.getfqdn(), help='uWSGI node fqdn name, default: "{}"'.format(socket.getfqdn()))    
     parser.add_argument('--role', '-r', dest='role', default='uwsgi', help='uWSGI role name, default: "uwsgi"')
     parser.add_argument('--frequency', '-q', dest='freq', default=1, type=float, help='uWSGI stats refresh frequency, in seconds')
     parser.add_argument('--format', '-f', dest='format', default=default_format,
